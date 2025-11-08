@@ -1,11 +1,9 @@
-=====================================================
 (FORK)   Facial Gesture Video Trigger
-=====================================================
 (See below for original credits) All credit to original author
 
 This program uses your webcam and MediaPipe’s Face Mesh model
 to detect a specific facial gesture — sticking out your tongue 
-while shaking your head — and plays a video automatically 
+while shaking your head — and plays a switching video automatically 
 when the gesture is sustained for a short duration.
 
 -----------------------------------------------------------
@@ -28,7 +26,8 @@ HOW IT WORKS
    - Mouth openness and tongue position
 4. When both the tongue-out and head-shake gestures are
    sustained for a set number of frames (default = 7),
-   a local video (orca-tongue.mp4) plays in a new window.
+   a local video plays in a new window. The video switches
+   per each run. Two videos are currently configurable
 
 After the video finishes, it closes automatically.
 
