@@ -1,6 +1,7 @@
 =====================================================
 (FORK)   Facial Gesture Video Trigger
 =====================================================
+(See below for original credits) All credit to original author
 
 This program uses your webcam and MediaPipe’s Face Mesh model
 to detect a specific facial gesture — sticking out your tongue 
@@ -73,7 +74,9 @@ Created by Andrew Allen
 Instagram: ElijahCyber 
 LinkedIn: https://www.linkedin.com/in/andrew-allen-655499190/
 Last updated: October 2025  
-    Forked by Evan Carter / MrSumthun
+
+Forked by Evan Carter / MrSumthun 
+Last Updated: Novemeber 2025
 -----------------------------------------------------------
 NOTES
 -----------------------------------------------------------
