@@ -1,5 +1,5 @@
 ===========================================================
-                Facial Gesture Video Trigger
+(FORK)   Facial Gesture Video Trigger
 ===========================================================
 
 This program uses your webcam and MediaPipe’s Face Mesh model
@@ -10,7 +10,7 @@ when the gesture is sustained for a short duration.
 -----------------------------------------------------------
 REQUIREMENTS
 -----------------------------------------------------------
-1. Python 3.8+
+1. Python 3.12 or below
 2. OpenCV
 3. MediaPipe
 
@@ -36,13 +36,14 @@ CONFIGURATION
 -----------------------------------------------------------
 You can edit the parameters at the top of the file:
 
-    VIDEO_PATH       — path to the video file to play  
-    SHAKE_WINDOW     — number of frames to track head motion  
-    SHAKE_THRESHOLD  — sensitivity for head movement  
-    TONGUE_THRESHOLD — how far the tongue must extend  
-    MIN_MOUTH_OPEN   — minimum mouth opening to consider  
-    TRIGGER_COOLDOWN — frames to wait before retriggering  
-    SUSTAIN_FRAMES   — gesture must last this many frames  
+    VIDEO_PATH_1     — Path to the first video file to play  
+    VIDEO_PATH_2     - Path to the second video file to play
+    SHAKE_WINDOW     — Number of frames to track head motion  
+    SHAKE_THRESHOLD  — Sensitivity for head movement  
+    TONGUE_THRESHOLD — How far the tongue must extend  
+    MIN_MOUTH_OPEN   — Minimum mouth opening to consider  
+    TRIGGER_COOLDOWN — Frames to wait before retriggering  
+    SUSTAIN_FRAMES   — Gesture must last this many frames  
 
 -----------------------------------------------------------
 LOGIC OVERVIEW
@@ -72,7 +73,7 @@ Created by Andrew Allen
 Instagram: ElijahCyber 
 LinkedIn: https://www.linkedin.com/in/andrew-allen-655499190/
 Last updated: October 2025  
-
+    Forked by Evan Carter / MrSumthun
 -----------------------------------------------------------
 NOTES
 -----------------------------------------------------------
