@@ -13,10 +13,12 @@ import time
 
 VIDEO_PATH_1 = "flight_tongue.mp4"
 VIDEO_PATH_2 = "orca-tongue.mp4"
+FREAKY_WINDOW_NAME = "GETTING FREAKY"
+CAMERA_WINDOW_NAME = "Freak Detector"
 SHAKE_WINDOW = 15
-SHAKE_THRESHOLD = 0.02
+SHAKE_THRESHOLD = 0.05
 TONGUE_THRESHOLD = 0.01
-MIN_MOUTH_OPEN = 0.02
+MIN_MOUTH_OPEN = 0.03
 TRIGGER_COOLDOWN = 60
 SUSTAIN_FRAMES = 1
 GESTURE_RUN_COUNT = 0
@@ -121,19 +123,19 @@ while cap.isOpened():
         cooldown -= 1
 
     # Show webcam
-    cv2.imshow("Freak Detector", frame)
+    cv2.imshow(CAMERA_WINDOW_NAME, frame)
 
     # Show video if available
     if not video_queue.empty():
         video_frame = video_queue.get()
-        cv2.imshow("GETTING FREAKY", video_frame)
-        cv2.moveWindow("Video Playback", 0, 0)
+        cv2.imshow(FREAKY_WINDOW_NAME, video_frame)
+        cv2.moveWindow(FREAKY_WINDOW_NAME, 0, 0)
     elif not play_video_flag.is_set():
         # Video finished, close window
-        cv2.destroyWindow("Video Playback")
-
+        cv2.destroyWindow(FREAKY_WINDOW_NAME)
     if cv2.waitKey(5) & 0xFF == 27:  # ESC to quit
         break
+
 print("Gesture made " + str(GESTURE_RUN_COUNT) + " times")
 cap.release()
 cv2.destroyAllWindows()
