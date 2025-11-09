@@ -1,5 +1,4 @@
-(FORK)   Facial Gesture Video Trigger
-(See below for original credits) All credit to original author
+Facial Gesture Video Trigger
 
 This program uses your webcam and MediaPipe’s Face Mesh model
 to detect a specific facial gesture — sticking out your tongue 
