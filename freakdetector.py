@@ -7,14 +7,18 @@ import time
 
 # ORIGINAL SOURCE: https://github.com/Elijah-cyber7/FreakDetector
 
-# TODO: Make videos swappable
-
 # === Settings ===
 
+#Video Paths
 VIDEO_PATH_1 = "flight_tongue.mp4"
 VIDEO_PATH_2 = "orca-tongue.mp4"
+
+# Window Names
 FREAKY_WINDOW_NAME = "GETTING FREAKY"
 CAMERA_WINDOW_NAME = "Freak Detector"
+
+FULLSCREEN_FREAK = False
+
 SHAKE_WINDOW = 15
 SHAKE_THRESHOLD = 0.05
 TONGUE_THRESHOLD = 0.01
@@ -64,7 +68,7 @@ def video_reader():
         vid.release()
         play_video_flag.clear()  # done playing
 
-# Start video reader thread
+# === Start video reader thread ===
 threading.Thread(target=video_reader, daemon=True).start()
 
 # === Gesture detection functions ===
@@ -129,8 +133,10 @@ while cap.isOpened():
     if not video_queue.empty():
         video_frame = video_queue.get()
         cv2.imshow(FREAKY_WINDOW_NAME, video_frame)
-        #cv2.setWindowProperty(FREAKY_WINDOW_NAME, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
-        cv2.moveWindow(FREAKY_WINDOW_NAME, 0, 0)
+        if FULLSCREEN_FREAK == True:
+            cv2.setWindowProperty(FREAKY_WINDOW_NAME, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
+        else:
+            cv2.moveWindow(FREAKY_WINDOW_NAME, 0, 0)
     elif not play_video_flag.is_set():
         # Video finished, close window
         cv2.destroyWindow(FREAKY_WINDOW_NAME)
