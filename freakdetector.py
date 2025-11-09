@@ -30,7 +30,7 @@ cap = cv2.VideoCapture(0)
 
 nose_positions = deque(maxlen=SHAKE_WINDOW)
 gesture_frames = 0
-cooldown = 0
+cooldown = 10
 
 # === Queue and flag for video frames ===
 video_queue = queue.Queue(maxsize=1)
@@ -113,7 +113,7 @@ while cap.isOpened():
     # Trigger video if sustained
     if gesture_frames >= SUSTAIN_FRAMES and cooldown == 0:
         GESTURE_RUN_COUNT+=1
-        print("Gesture sustained for " + str(GESTURE_RUN_COUNT) + "! Starting video...")
+        print("Gesture sustained " + str(GESTURE_RUN_COUNT) + " times. Starting video...")
         play_video_flag.set()
         cooldown = TRIGGER_COOLDOWN
         gesture_frames = 0
@@ -129,6 +129,7 @@ while cap.isOpened():
     if not video_queue.empty():
         video_frame = video_queue.get()
         cv2.imshow(FREAKY_WINDOW_NAME, video_frame)
+        #cv2.setWindowProperty(FREAKY_WINDOW_NAME, cv2.WND_PROP_FULLSCREEN, cv2.WINDOW_FULLSCREEN)
         cv2.moveWindow(FREAKY_WINDOW_NAME, 0, 0)
     elif not play_video_flag.is_set():
         # Video finished, close window
